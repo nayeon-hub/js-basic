@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scrolling</title>
+  </head>
+  <style>
+    .div-container div {
+      width: 100px;
+      height: 100px;
+      background-color: papayawhip;
+      margin-bottom: 5px;
+    }
+
+    #selected {
+      background-color: pink;
+    }
+
+    aside {
+      position: fixed;
+      top: 0;
+      right: 0;
+    }
+  </style>
+  <body>
+    <div class="div-container">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div id="selected"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <aside>
+      <button type="button">Scroll by 100px(y)</button>
+      <button type="button">Scroll to 100px(y)</button>
+      <button type="button">Scroll into special</button>
+    </aside>
+  </body>
+  <script>
+    const buttonList = document.querySelectorAll("button");
+    const selected = document.querySelector("#selected");
+    // buttonList[0].addEventListener("click", () => window.scrollBy(0, 100));
+    buttonList[0].addEventListener("click", () =>
+      window.scrollBy({ top: 100, left: 0, behavior: "smooth" })
+    );
+    buttonList[1].addEventListener("click", () => window.scrollTo(0, 100));
+    buttonList[2].addEventListener("click", () => selected.scrollIntoView());
+  </script>
+</html>

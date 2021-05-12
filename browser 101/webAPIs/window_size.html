@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window Size</title>
+    <style>
+      .size-value {
+        background-color: thistle;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="size-value">
+      <span>window.screen:</span> <br />
+      <span>window.outer:</span> <br />
+      <span>window.inner:</span> <br />
+      <span>documentElement.clientWidth:</span> <br />
+    </div>
+  </body>
+  <script>
+    let span = document.querySelectorAll("span");
+
+    function updateValue() {
+      span[0].innerText = `window.screen: ${window.screen.width}, ${window.screen.height}`;
+      span[1].innerText = `window.outer: ${window.outerWidth}, ${window.outerHeight}`;
+      span[2].innerText = `window.inner: ${window.innerWidth}, ${window.innerHeight}`;
+      span[3].innerText = `window.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}`;
+    }
+
+    window.addEventListener("resize", updateValue);
+    updateValue(); //한번 더 실행해줘서 처음에 값이 출력될 수 있게!
+  </script>
+</html>
